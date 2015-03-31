@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>sw-save-as-bug</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+<h1>Service Worker "save link as..." bug</h1>
+
+<h2>simple links with href attr</h2>
+
+<div><a href="cat.jpg">link to image</a></div>
+<div><a href="index.css">link to css</a></div>
+<div><a href="index.js">link to js</a></div>
+<div><a href="cache-foobar.json">link to JSON generated from cache</a></div>
+<div><a href="on-the-fly-foobar.json">link to JSON generated on the fly</a></div>
+
+<h2>links with href and download attr</h2>
+
+<div><a href="cat.jpg" download="cat.jpg">link to image</a></div>
+<div><a href="index.css" download="index.css">link to css</a></div>
+<div><a href="index.js" download="index.js">link to js</a></div>
+<div><a href="cache-foobar.json" download="cache-foobar.json">link to JSON generated from cache</a></div>
+<div><a href="on-the-fly-foobar.json" download="on-the-fly-foobar.json">link to JSON generated on the fly</a></div>
+
+<h2>a cat to try save image as</h2>
+
+<img src="cat.jpg" alt="cat">
+
+<script src="index.js"></script>
+
+</body>
+</html>
