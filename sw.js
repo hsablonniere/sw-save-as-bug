@@ -19,7 +19,12 @@ self.addEventListener('install', function (event) {
 
             var generatedResourcePromise = cache.put(
                 new Request('/sw-save-as-bug/cache-foobar.json'),
-                new Response(JSON.stringify({ source: 'cache' }))
+                new Response(JSON.stringify({source: 'cache'}), {
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'content-disposition': 'attachment'
+                    }
+                })
             );
 
             return Promise.all([realResourcesPromise, generatedResourcePromise]);
@@ -44,9 +49,10 @@ self.addEventListener('fetch', function (event) {
             else {
 
                 if (event.request.url.match(/on-the-fly-foobar\.json$/)) {
-                    return new Response(JSON.stringify({ source: 'on the fly' }), {
+                    return new Response(JSON.stringify({source: 'on the fly'}), {
                         headers: {
-                            'Content-Type': 'application/json'
+                            'Content-Type': 'application/json',
+                            'content-disposition': 'attachment'
                         }
                     });
                 }
